@@ -82,8 +82,6 @@ class StopEtaListViewController: UITableViewController , BusManagerDelegate{
         cell.textLabel?.numberOfLines = 0;
         cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.textLabel?.text = tableCellList[indexPath.row].cellStr
-        cell.accessoryType = self.tableCellItemSelected[indexPath.row] ? .detailButton : .none
-        
         return cell
     }
     
