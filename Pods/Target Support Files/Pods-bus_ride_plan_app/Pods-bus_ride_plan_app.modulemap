@@ -1,0 +1,6 @@
+framework module Pods_bus_ride_plan_app {
+  umbrella header "Pods-bus_ride_plan_app-umbrella.h"
+
+  export *
+  module * { export * }
+}

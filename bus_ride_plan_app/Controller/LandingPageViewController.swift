@@ -7,8 +7,10 @@
 
 import UIKit
 import CoreLocation
+import CLTypingLabel
 
 class LandingPageViewController: UIViewController, BusManagerDelegate {
+    @IBOutlet weak var Welcome_title: CLTypingLabel!
     @IBOutlet weak var locationLabel: UILabel!
     let locationManager = CLLocationManager()
     var busDataManager = BusDataManager()
@@ -16,10 +18,13 @@ class LandingPageViewController: UIViewController, BusManagerDelegate {
         super.viewDidLoad()
         self.busDataManager.delegate = self
         locationManager.delegate = self
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isHidden = false
         
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "Indigo")
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
+        self.Welcome_title.text = "歡迎來到九巴遊車河App"
         
         // Do any additional setup after loading the view
         if !busDataManager.loadBusDataFromLocal() {

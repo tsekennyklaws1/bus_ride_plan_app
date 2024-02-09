@@ -35,6 +35,7 @@
 		0E9AD1E22B70C3DA00A5AD3A /* StopEtaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1E12B70C3DA00A5AD3A /* StopEtaListViewController.swift */; };
 		0E9AD1E42B70CE7B00A5AD3A /* BusStopEtaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1E32B70CE7B00A5AD3A /* BusStopEtaData.swift */; };
 		0E9AD1E62B70D7B300A5AD3A /* BusStopEtaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1E52B70D7B300A5AD3A /* BusStopEtaDataModel.swift */; };
+		BCC8E8248CFFBEE68C1EB04D /* Pods_bus_ride_plan_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8153FE6E3335F4AB20910311 /* Pods_bus_ride_plan_app.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,9 @@
 		0E9AD1E12B70C3DA00A5AD3A /* StopEtaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopEtaListViewController.swift; sourceTree = "<group>"; };
 		0E9AD1E32B70CE7B00A5AD3A /* BusStopEtaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEtaData.swift; sourceTree = "<group>"; };
 		0E9AD1E52B70D7B300A5AD3A /* BusStopEtaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEtaDataModel.swift; sourceTree = "<group>"; };
+		8153FE6E3335F4AB20910311 /* Pods_bus_ride_plan_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bus_ride_plan_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE073ACFDF4C22516D84555A /* Pods-bus_ride_plan_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bus_ride_plan_app.debug.xcconfig"; path = "Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app.debug.xcconfig"; sourceTree = "<group>"; };
+		FD3BB10E54ABFC622B14100B /* Pods-bus_ride_plan_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bus_ride_plan_app.release.xcconfig"; path = "Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC8E8248CFFBEE68C1EB04D /* Pods_bus_ride_plan_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +126,8 @@
 				0E9AD1A22B6E3D4600A5AD3A /* bus_ride_plan_appTests */,
 				0E9AD1AC2B6E3D4600A5AD3A /* bus_ride_plan_appUITests */,
 				0E9AD1872B6E3D4500A5AD3A /* Products */,
+				F09B356E6BCB2C271ECEED40 /* Pods */,
+				2D68060317C024C3BEF7CAC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +215,23 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		2D68060317C024C3BEF7CAC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8153FE6E3335F4AB20910311 /* Pods_bus_ride_plan_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F09B356E6BCB2C271ECEED40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE073ACFDF4C22516D84555A /* Pods-bus_ride_plan_app.debug.xcconfig */,
+				FD3BB10E54ABFC622B14100B /* Pods-bus_ride_plan_app.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,9 +239,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E9AD1B32B6E3D4600A5AD3A /* Build configuration list for PBXNativeTarget "bus_ride_plan_app" */;
 			buildPhases = (
+				9C739832F46D94A3B29CED24 /* [CP] Check Pods Manifest.lock */,
 				0E9AD1822B6E3D4500A5AD3A /* Sources */,
 				0E9AD1832B6E3D4500A5AD3A /* Frameworks */,
 				0E9AD1842B6E3D4500A5AD3A /* Resources */,
+				F7CEDEC55B2114B9AFFCCFD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,6 +359,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C739832F46D94A3B29CED24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bus_ride_plan_app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7CEDEC55B2114B9AFFCCFD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E9AD1822B6E3D4500A5AD3A /* Sources */ = {
@@ -453,7 +521,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -516,7 +584,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -537,12 +605,14 @@
 		};
 		0E9AD1B42B6E3D4600A5AD3A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE073ACFDF4C22516D84555A /* Pods-bus_ride_plan_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CKESP3MPW2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = bus_ride_plan_app/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -565,12 +635,14 @@
 		};
 		0E9AD1B52B6E3D4600A5AD3A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD3BB10E54ABFC622B14100B /* Pods-bus_ride_plan_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CKESP3MPW2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = bus_ride_plan_app/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

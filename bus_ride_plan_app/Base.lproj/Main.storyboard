@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q5R-6E-lgR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="07n-3K-88y">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,31 +13,33 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LandingPageViewController" customModule="bus_ride_plan_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HSt-WJ-gRG"/>
+                        <viewControllerLayoutGuide type="bottom" id="fS5-3s-0RZ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDu-By-BOU">
-                                <rect key="frame" x="87" y="446" width="219" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="巴士路線">
-                                    <backgroundConfiguration key="background" strokeWidth="5" strokeOutset="6">
-                                        <color key="backgroundColor" red="0.99072007929999995" green="1" blue="0.35208622439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="strokeColor" systemColor="tertiarySystemFillColor"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="didRouteButtonClickl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cpL-K5-DlT"/>
-                                    <segue destination="UrG-vs-Jh4" kind="presentation" identifier="goToBusRoute" id="mch-YM-GQI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fee-eK-ZEt">
-                                <rect key="frame" x="87" y="547" width="218" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" id="SC8-T6-JB0">
+                                <rect key="frame" x="0.0" y="103" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歡迎來到九巴遊車河App" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5f-sj-xKz" customClass="CLTypingLabel" customModule="CLTypingLabel">
+                                <rect key="frame" x="102" y="133" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fee-eK-ZEt">
+                                <rect key="frame" x="2" y="678" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="lRx-LV-qqZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="r7M-g6-OBH"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="巴士站">
-                                    <backgroundConfiguration key="background" strokeWidth="5" strokeOutset="6">
+                                    <backgroundConfiguration key="background" cornerRadius="15" strokeWidth="5" strokeOutset="6">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <color key="strokeColor" systemColor="tertiarySystemFillColor"/>
                                     </backgroundConfiguration>
@@ -46,12 +49,36 @@
                                     <segue destination="67q-C6-f4H" kind="presentation" identifier="goToBusStops" id="I2t-0t-TM8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIZ-ae-0Hx">
-                                <rect key="frame" x="87" y="643" width="218" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDu-By-BOU">
+                                <rect key="frame" x="2" y="618" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Hs8-tj-0tz"/>
+                                    <constraint firstAttribute="width" constant="200" id="MHS-U6-N4G"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="巴士路線">
+                                    <backgroundConfiguration key="background" cornerRadius="15" strokeWidth="5" strokeOutset="6">
+                                        <color key="backgroundColor" red="0.99072007929999995" green="1" blue="0.35208622439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="strokeColor" systemColor="tertiarySystemFillColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didRouteButtonClickl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cpL-K5-DlT"/>
+                                    <segue destination="UrG-vs-Jh4" kind="presentation" identifier="goToBusRoute" id="mch-YM-GQI">
+                                        <segue key="commit" inheritsFrom="parent" id="1kW-ZV-DEW"/>
+                                        <segue key="preview" inheritsFrom="commit" id="Ig0-uY-ucl"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIZ-ae-0Hx">
+                                <rect key="frame" x="2" y="738" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JUf-AL-WwW"/>
+                                    <constraint firstAttribute="width" constant="200" id="UPq-fs-VAu"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="最近的巴士站">
-                                    <backgroundConfiguration key="background" strokeWidth="5" strokeOutset="6">
+                                    <backgroundConfiguration key="background" cornerRadius="15" strokeWidth="5" strokeOutset="6">
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <color key="strokeColor" systemColor="tertiarySystemFillColor"/>
                                     </backgroundConfiguration>
@@ -60,68 +87,36 @@
                                     <action selector="getGPSCLick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bff-sl-FoO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location is " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFs-Jb-BNT">
-                                <rect key="frame" x="74" y="172" width="248" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location is " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFs-Jb-BNT">
+                                <rect key="frame" x="59" y="153" width="86" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UIZ-ae-0Hx" firstAttribute="centerX" secondItem="UDu-By-BOU" secondAttribute="centerX" id="0OF-cd-BdJ"/>
+                            <constraint firstItem="K5f-sj-xKz" firstAttribute="top" secondItem="HSt-WJ-gRG" secondAttribute="bottom" constant="30" id="3bC-Ei-nz8"/>
+                            <constraint firstItem="Fee-eK-ZEt" firstAttribute="top" secondItem="UDu-By-BOU" secondAttribute="bottom" constant="20" id="8dw-sV-hNe"/>
+                            <constraint firstItem="DFs-Jb-BNT" firstAttribute="top" secondItem="K5f-sj-xKz" secondAttribute="bottom" constant="20" id="Wfl-Wy-3gg"/>
+                            <constraint firstItem="UIZ-ae-0Hx" firstAttribute="top" secondItem="Fee-eK-ZEt" secondAttribute="bottom" constant="20" id="cf6-w4-jhz"/>
+                            <constraint firstItem="K5f-sj-xKz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="86" id="eom-uW-wLk"/>
+                            <constraint firstItem="fS5-3s-0RZ" firstAttribute="top" secondItem="UIZ-ae-0Hx" secondAttribute="bottom" constant="40" id="f8o-4O-vPs"/>
+                            <constraint firstItem="Fee-eK-ZEt" firstAttribute="centerX" secondItem="K5f-sj-xKz" secondAttribute="centerX" id="feF-tZ-Vz7"/>
+                            <constraint firstItem="DFs-Jb-BNT" firstAttribute="centerX" secondItem="K5f-sj-xKz" secondAttribute="centerX" id="iMa-B8-JMs"/>
+                            <constraint firstItem="Fee-eK-ZEt" firstAttribute="centerX" secondItem="UDu-By-BOU" secondAttribute="centerX" id="xLM-PU-Kof"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="九巴遊車河" id="Hc2-nr-HJP">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="FmE-hS-Cpu"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="九巴遊車河" customizationIdentifier="arrowshape.backward" id="q2v-9Z-pnb" userLabel="I"/>
                     <connections>
+                        <outlet property="Welcome_title" destination="K5f-sj-xKz" id="Npj-4c-rnZ"/>
                         <outlet property="locationLabel" destination="DFs-Jb-BNT" id="0Fx-ck-0wD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927.48091603053433" y="-2.1126760563380285"/>
-        </scene>
-        <!--NavigationController-->
-        <scene sceneID="HR3-EO-JGH">
-            <objects>
-                <navigationController title="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Q5R-6E-lgR" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0UB-L6-KF8">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <navigationBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" red="0.93299746729999999" green="1" blue="0.94913940389999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </navigationBarAppearance>
-                        <navigationBarAppearance key="compactAppearance">
-                            <color key="backgroundColor" red="0.1202382031" green="0.24905257550000001" blue="0.2604245543" alpha="0.1764705882" colorSpace="custom" customColorSpace="displayP3"/>
-                            <barButtonItemAppearance key="buttonAppearance">
-                                <barButtonItemStateAppearance key="normal">
-                                    <textAttributes key="titleTextAttributes">
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </textAttributes>
-                                </barButtonItemStateAppearance>
-                                <barButtonItemStateAppearance key="highlighted"/>
-                                <barButtonItemStateAppearance key="disabled"/>
-                                <barButtonItemStateAppearance key="focused"/>
-                            </barButtonItemAppearance>
-                        </navigationBarAppearance>
-                        <navigationBarAppearance key="compactScrollEdgeAppearance"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ztj-Ai-QlH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-1k-P9T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="35.877862595419849" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2780.9160305343512" y="-2.1126760563380285"/>
         </scene>
         <!--Bus Route View Controller-->
         <scene sceneID="7OO-7l-p0V">
@@ -131,9 +126,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="aSc-6b-5d6">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" name="AccentColor"/>
+                            <imageReference key="backIndicatorImage" image="arrowshape.backward" catalog="system" symbolScale="small"/>
+                            <items>
+                                <navigationItem title="九巴遊車河app" customizationIdentifier="bus_route_navigator_item" id="O9R-YN-seA">
+                                    <barButtonItem key="backBarButtonItem" title="arrowshape.backward" id="fwj-fH-etW"/>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="busRouteCells" id="pPi-f2-wBw">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                <rect key="frame" x="0.0" y="94" width="393" height="44.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pPi-f2-wBw" id="Llh-4b-nKB">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
@@ -153,7 +159,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnQ-kZ-CRY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="-470"/>
+            <point key="canvasLocation" x="3924.4274809160302" y="-470.42253521126764"/>
         </scene>
         <!--Route List View Controller-->
         <scene sceneID="g1g-ba-DQp">
@@ -184,7 +190,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaJ-vF-E18" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3082" y="-470"/>
+            <point key="canvasLocation" x="4935.1145038167933" y="-470.42253521126764"/>
         </scene>
         <!--Eta Detail View Controller-->
         <scene sceneID="qBG-7z-DAO">
@@ -212,7 +218,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epq-tc-ear" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4291" y="-26"/>
+            <point key="canvasLocation" x="6144.2748091603053" y="-26.056338028169016"/>
         </scene>
         <!--Bus Stop View Controller-->
         <scene sceneID="XOg-NW-ByV">
@@ -243,7 +249,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSO-KU-O6f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="471"/>
+            <point key="canvasLocation" x="3924.4274809160302" y="470.42253521126764"/>
         </scene>
         <!--Stop Eta List View Controller-->
         <scene sceneID="XS5-xN-eKf">
@@ -274,15 +280,45 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eju-Y8-g3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3082" y="470"/>
+            <point key="canvasLocation" x="4935.1145038167933" y="469.71830985915494"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GZp-Xw-lFT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="07n-3K-88y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="5qA-K6-u4r"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I8k-ZX-R81">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6ub-qQ-6Uz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F0t-Oe-rvS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1854.1984732824426" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="K5f-sj-xKz"/>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="GoJ-qV-DeR"/>
+        <segue reference="jJn-VM-yTg"/>
+        <segue reference="mch-YM-GQI"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrowshape.backward" catalog="system" width="128" height="104"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
