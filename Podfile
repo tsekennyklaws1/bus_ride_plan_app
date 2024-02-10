@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '13.0'
+platform :ios, '14.0'
 
 target 'bus_ride_plan_app' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -17,7 +17,8 @@ target 'bus_ride_plan_app' do
  # end
   
   pod 'CLTypingLabel', '~> 0.4.0'
-
+  pod 'GoogleMaps', '8.4.0'
+ 
 
 
 

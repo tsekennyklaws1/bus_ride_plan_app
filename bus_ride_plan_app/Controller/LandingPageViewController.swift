@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import CLTypingLabel
+import GoogleMaps
 
 class LandingPageViewController: UIViewController, BusManagerDelegate {
     @IBOutlet weak var Welcome_title: CLTypingLabel!
@@ -32,6 +33,7 @@ class LandingPageViewController: UIViewController, BusManagerDelegate {
                 self.busDataManager.fetchAllBusStop()
             }
         }
+        
     }
 
     func didUpdateBusData(_ busDataManager: BusDataManager, busData: BusDataModel) {
@@ -89,10 +91,36 @@ extension LandingPageViewController: CLLocationManagerDelegate{
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
             locationLabel.text = "Location data:\n(\(lat),\(lon))"
+            DispatchQueue.main.async {
+                let geoCoder = GMSGeocoder()
+                geoCoder.reverseGeocodeCoordinate((location.coordinate), completionHandler: 
+                {
+                reverseGeoCodeResponse, error in
+                    print(reverseGeoCodeResponse?.results()!)
+                })
+            }
+            /*
+            let options = GMSMapViewOptions()
+                options.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lon, zoom: 17.0)
+                options.frame = self.view.bounds
+
+            let mapView = GMSMapView(options: options)
+                self.view.addSubview(mapView)
+
+                // Creates a marker in the center of the map.
+                let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                marker.title = "Kowloon Bay"
+                marker.snippet = "Hong Kong"
+                marker.map = mapView
+            */
+            
+
+             
         }
     }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
+
 }
