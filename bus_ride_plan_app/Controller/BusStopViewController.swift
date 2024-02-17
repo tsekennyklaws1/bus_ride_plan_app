@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
-class BusStopViewController: UITableViewController, BusManagerDelegate {
+class BusStopViewController: UITableViewController, UISearchBarDelegate, BusManagerDelegate {
     let defaults = UserDefaults.standard
+    @IBOutlet weak var searchBar: UISearchBar!
     var busStops  : [(stopCode:String,stopName:String)] = []
     var stopCellSelected : [Bool] = []
     var busDataManager = BusDataManager()
@@ -26,6 +28,7 @@ class BusStopViewController: UITableViewController, BusManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.busDataManager.delegate = self
+        
         if (busDataManager.bustStopsName.count > 1) {
             self.busStops = busDataManager.bustStopsName.map{($0.key,$0.value)}
             self.stopCellSelected = Array(repeating: false, count: self.busStops.count)
@@ -50,7 +53,8 @@ class BusStopViewController: UITableViewController, BusManagerDelegate {
                 self.busStops = (busData as! BusStopDataModel).dataStringList
                 self.busDataManager.setStopNameList(busStopData.data as! [StopData])
                 self.stopCellSelected = Array(repeating: false, count: self.busStops.count)
-                self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
+                //self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
+                self.busDataManager.saveBusDataToDB(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
             }
         }
         
@@ -61,7 +65,13 @@ class BusStopViewController: UITableViewController, BusManagerDelegate {
     func didFailWithError(error: Error) {
         print("API failed \(error)")
     }
+    
+    // MARK: - Search Bar Delegate
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Clicked")
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

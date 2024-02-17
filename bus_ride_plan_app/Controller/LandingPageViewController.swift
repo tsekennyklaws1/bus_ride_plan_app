@@ -9,12 +9,17 @@ import UIKit
 import CoreLocation
 import CLTypingLabel
 import GoogleMaps
+import CoreData
 
 class LandingPageViewController: UIViewController, BusManagerDelegate {
     @IBOutlet weak var Welcome_title: CLTypingLabel!
     @IBOutlet weak var locationLabel: UILabel!
     let locationManager = CLLocationManager()
     var busDataManager = BusDataManager()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var stopList = [StopData]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.busDataManager.delegate = self
@@ -28,7 +33,8 @@ class LandingPageViewController: UIViewController, BusManagerDelegate {
         self.Welcome_title.text = "歡迎來到九巴遊車河App"
         
         // Do any additional setup after loading the view
-        if !busDataManager.loadBusDataFromLocal() {
+        //if !busDataManager.loadBusDataFromLocal() {
+        if !busDataManager.loadBusDataFromDB() {
             DispatchQueue.main.async {
                 self.busDataManager.fetchAllBusStop()
             }
@@ -41,12 +47,34 @@ class LandingPageViewController: UIViewController, BusManagerDelegate {
         if let busRouteData = (busData as? BusRouteDataModel) {
             if busRouteData.data.count > 1 {
                 self.busDataManager.setBusRouteDataList(busRouteData.data as! [RouteData])
-                self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
+                //self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
+                self.busDataManager.saveBusDataToDB(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
             }
         } else if let busStopData = (busData as? BusStopDataModel) {
             if busStopData.data.count > 1 {
-                self.busDataManager.setStopNameList(busStopData.data as! [StopData])
-                self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
+                let stopData = busStopData.data as! [StopData]
+                self.busDataManager.setStopNameList(stopData)
+                //self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
+                self.busDataManager.saveBusDataToDB(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
+                /*
+                var stopDataToBeSaved = [Stop]()
+                stopData.forEach {
+                    let stopDataItem = Stop(context: self.context)
+                    print("try to insert: \($0.toStr())")
+                    stopDataItem.busStop = $0.stop
+                    stopDataItem.name_en = $0.name_en
+                    stopDataItem.name_tc = $0.name_tc
+                    stopDataItem.name_sc = $0.name_sc
+                    stopDataItem.stopLat = $0.lat
+                    stopDataItem.stopLong = $0.long
+                    //stopDataToBeSaved.data_timeStamp = $0.data_timeStamp
+                    stopDataToBeSaved.append(stopDataItem)
+                    
+                }
+                self.saveToDB()
+                
+                loadFromDB()
+                */
             }
         }
     }
@@ -54,8 +82,8 @@ class LandingPageViewController: UIViewController, BusManagerDelegate {
     func didFailWithError(error: Error) {
         print("HomeViewController throws error \(error)")
     }
-    
 
+    
     
     @IBAction func didRouteButtonClickl(_ sender: UIButton) {
         performSegue(withIdentifier: "goToBusRoute", sender: self)
@@ -121,6 +149,42 @@ extension LandingPageViewController: CLLocationManagerDelegate{
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
+    }
+    
+    func saveToDB() {
+            do {
+                try context.save()
+            } catch {
+                print("Error saving category \(error)")
+            }
+            
+            //tableView.reloadData()
+            
+        }
+        
+    func loadFromDB() {
+       
+        let request = NSFetchRequest<Stop>(entityName: "Stop")
+        print("hello")
+      /*
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+       
+        if let addtionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }*/
+
+        
+        do {
+         let itemArray = try context.fetch(request)
+            print("DB items = \(itemArray)")
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+        
+        //tableView.reloadData()
+        
     }
 
 }

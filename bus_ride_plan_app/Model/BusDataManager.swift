@@ -1,5 +1,7 @@
 import Foundation
+import UIKit
 import CoreLocation
+import CoreData
 
 protocol BusManagerDelegate {
     func didUpdateBusData(_ busDataManager: BusDataManager, busData: BusDataModel)
@@ -7,6 +9,8 @@ protocol BusManagerDelegate {
 }
 
 class BusDataManager {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     let busRouteURL = "https://data.etabus.gov.hk/v1/transport/kmb"
     var busRouteDataList :  [(String, String)] = []// "route,bound,service_type": "toStr"
 
@@ -138,7 +142,7 @@ class BusDataManager {
     func parseJSON(_ busData: Data,_ busDataModel_init: BusDataModel) -> BusDataModel? {
         let decoder = JSONDecoder()
             do {
-                if ((busDataModel_init as? BusRouteDataModel) != nil){
+                if (busDataModel_init is BusRouteDataModel){
                     let decodedData = try decoder.decode(BusRouteData.self, from: busData)
                     let version = decodedData.version
                     let type = decodedData.type
@@ -146,7 +150,7 @@ class BusDataManager {
                     let data = decodedData.data
                     busDataModel_init.setVersion_Timestamp(type,version,generated_timestamp)
                     (busDataModel_init as! BusRouteDataModel).setData(data)
-                } else if ((busDataModel_init as? BusStopDataModel) != nil){
+                } else if (busDataModel_init is BusStopDataModel){
                     let decodedData = try decoder.decode(BusStopData.self, from: busData)
                     let version = decodedData.version
                     let type = decodedData.type
@@ -154,7 +158,7 @@ class BusDataManager {
                     let data = decodedData.data
                     busDataModel_init.setVersion_Timestamp(type,version,generated_timestamp)
                     (busDataModel_init as! BusStopDataModel).setData(data)
-                } else if ((busDataModel_init as? BusRouteStopDataModel) != nil){
+                } else if (busDataModel_init is BusRouteStopDataModel){
                     let decodedData = try decoder.decode(BusRouteStopData.self, from: busData)
                     let version = decodedData.version
                     let type = decodedData.type
@@ -162,7 +166,7 @@ class BusDataManager {
                     let data = decodedData.data
                     busDataModel_init.setVersion_Timestamp(type,version,generated_timestamp)
                     (busDataModel_init as! BusRouteStopDataModel).setData(data)
-                } else if ((busDataModel_init as? BusStopEtaDataModel) != nil){
+                } else if (busDataModel_init is BusStopEtaDataModel){
                     let decodedData = try decoder.decode(BusStopEtaData.self, from: busData)
                     let version = decodedData.version
                     let type = decodedData.type
@@ -170,7 +174,7 @@ class BusDataManager {
                     let data = decodedData.data
                     busDataModel_init.setVersion_Timestamp(type,version,generated_timestamp)
                     (busDataModel_init as! BusStopEtaDataModel).setData(data)
-                } else if ((busDataModel_init as? BusEtaDetailDataModel) != nil){
+                } else if (busDataModel_init is BusEtaDetailDataModel){
                     let decodedData = try decoder.decode(BusEtaDetailData.self, from: busData)
                     let version = decodedData.version
                     let type = decodedData.type
@@ -246,5 +250,103 @@ class BusDataManager {
             print("Error encoding item array, \(error)")
         }
     }
+    
+    
+    
+    func loadBusDataFromDB()-> Bool{
+        var busRouteLoaded : Bool = false
+        var busStopLoaded : Bool = false
+    
+        
+        do {
+            let request = NSFetchRequest<Route>(entityName: "Route")
+            let itemArray = try context.fetch(request)
+            self.busRouteDataList = itemArray.map{(String("\($0.route),\($0.bound == "O" ? "outbound" : "inbound"),\($0.service_type)"),$0.toStr!)}
+            busRouteLoaded = true
+        } catch {
+            print("Error fetching Routedata from context \(error)")
+        }
+        do{
+            let request = NSFetchRequest<Stop>(entityName: "Stop")
+            let itemArray = try context.fetch(request)
+            itemArray.forEach{self.bustStopsName.updateValue($0.name_tc!, forKey: $0.busStop!)}
+            busStopLoaded = true
+       } catch {
+           print("Error fetching Stopdata from context \(error)")
+       }
+        
+       
+        return busRouteLoaded && busStopLoaded
+    }
+    
+    
+    func saveBusDataToDB(path : URL, dataToBeSave : [BusData]){
+        let encoder = PropertyListEncoder()
+        do{
+            switch path {
+            case localRouteDataPath:
+                
+                var dataToBeInsert = [Route]()
+                (dataToBeSave as! [RouteData]).forEach {
+                    let dataItem = Route(context: self.context)
+                    print("try to insert: \($0.toStr())")
+                    dataItem.route = $0.route
+                    dataItem.bound = $0.bound
+                    dataItem.dest_en = $0.dest_en
+                    dataItem.dest_tc = $0.dest_tc
+                    dataItem.dest_sc = $0.dest_sc
+                    dataItem.orig_en = $0.orig_en
+                    dataItem.orig_tc = $0.orig_tc
+                    dataItem.orig_sc = $0.orig_sc
+                    dataItem.co = $0.co
+                    dataItem.service_type = $0.service_type
+                    dataItem.toStr = $0.toStr()
+                    dataToBeInsert.append(dataItem)
+                    
+                }
+                saveToDB()
+            case localStopDataPath:
+                
+                var dataToBeInsert = [Stop]()
+                (dataToBeSave as! [StopData]).forEach {
+                    let dataItem = Stop(context: self.context)
+                    print("try to insert: \($0.toStr())")
+                    dataItem.busStop = $0.stop
+                    dataItem.name_en = $0.name_en
+                    dataItem.name_tc = $0.name_tc
+                    dataItem.name_sc = $0.name_sc
+                    dataItem.stopLat = $0.lat
+                    dataItem.stopLong = $0.long
+                    dataItem.toStr = $0.toStr()
+                    dataToBeInsert.append(dataItem)
+                    
+                }
+                saveToDB()
+                
+           // case localRouteStopDataPath:
+           //     let data = try encoder.encode(dataToBeSave as! [RouteStopData])
+           //     try data.write(to: localRouteStopDataPath!)
+            default:
+                print("No data saved")
+            }
+            
+        }
+        catch{
+            print("Error encoding item array, \(error)")
+        }
+    }
+    
+    func saveToDB() {
+            do {
+                try context.save()
+            } catch {
+                print("Error saving category \(error)")
+            }
+            
+            //tableView.reloadData()
+            
+        }
+        
+   
 }
 

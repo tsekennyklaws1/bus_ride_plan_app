@@ -52,7 +52,8 @@ class BusRouteViewController: UITableViewController, BusManagerDelegate {
                 self.busRoutesCellDisplay = (busData as! BusRouteDataModel).dataStringList
                 self.routeCellSelected = Array(repeating: false, count: self.busRoutesCellDisplay.count)
                 self.busDataManager.setBusRouteDataList(busRouteData.data as! [RouteData])
-                self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
+                //self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
+                self.busDataManager.saveBusDataToDB(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
             }
         }
         DispatchQueue.main.async {

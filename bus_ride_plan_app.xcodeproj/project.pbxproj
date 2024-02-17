@@ -149,11 +149,11 @@
 				0E9AD1C02B6E3DDE00A5AD3A /* Controller */,
 				0E9AD1892B6E3D4500A5AD3A /* AppDelegate.swift */,
 				0E9AD18B2B6E3D4500A5AD3A /* SceneDelegate.swift */,
+				0E9AD1922B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodeld */,
 				0E9AD18F2B6E3D4500A5AD3A /* Main.storyboard */,
 				0E9AD1952B6E3D4600A5AD3A /* Assets.xcassets */,
 				0E9AD1972B6E3D4600A5AD3A /* LaunchScreen.storyboard */,
 				0E9AD19A2B6E3D4600A5AD3A /* Info.plist */,
-				0E9AD1922B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodeld */,
 			);
 			path = bus_ride_plan_app;
 			sourceTree = "<group>";

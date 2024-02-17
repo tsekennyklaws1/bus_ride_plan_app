@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Route" representedClassName=".Route" syncable="YES" codeGenerationType="class">
+        <attribute name="bound" optional="YES" attributeType="String"/>
+        <attribute name="co" optional="YES" attributeType="String"/>
+        <attribute name="dest_en" optional="YES" attributeType="String"/>
+        <attribute name="dest_sc" optional="YES" attributeType="String"/>
+        <attribute name="dest_tc" optional="YES" attributeType="String"/>
+        <attribute name="orig_en" optional="YES" attributeType="String"/>
+        <attribute name="orig_sc" optional="YES" attributeType="String"/>
+        <attribute name="orig_tc" optional="YES" attributeType="String"/>
+        <attribute name="route" attributeType="String"/>
+        <attribute name="service_type" optional="YES" attributeType="String"/>
+        <attribute name="toStr" optional="YES" attributeType="String"/>
+        <relationship name="parentRoute" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteStop" inverseName="route_" inverseEntity="RouteStop"/>
+    </entity>
+    <entity name="RouteStop" representedClassName=".RouteStop" syncable="YES" codeGenerationType="class">
+        <attribute name="bound" optional="YES" attributeType="String"/>
+        <attribute name="co" optional="YES" attributeType="String"/>
+        <attribute name="data_timeStamp" optional="YES" attributeType="String"/>
+        <attribute name="route" optional="YES" attributeType="String"/>
+        <attribute name="seq" optional="YES" attributeType="String"/>
+        <attribute name="service_type" optional="YES" attributeType="String"/>
+        <attribute name="stop" optional="YES" attributeType="String"/>
+        <relationship name="route_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="parentRoute" inverseEntity="Route"/>
+        <relationship name="stop_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stop" inverseName="parentStop" inverseEntity="Stop"/>
+    </entity>
+    <entity name="Stop" representedClassName=".Stop" syncable="YES" codeGenerationType="class">
+        <attribute name="busStop" optional="YES" attributeType="String"/>
+        <attribute name="name_en" optional="YES" attributeType="String"/>
+        <attribute name="name_sc" optional="YES" attributeType="String"/>
+        <attribute name="name_tc" optional="YES" attributeType="String"/>
+        <attribute name="stopLat" optional="YES" attributeType="String"/>
+        <attribute name="stopLong" optional="YES" attributeType="String"/>
+        <attribute name="toStr" optional="YES" attributeType="String"/>
+        <relationship name="parentStop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteStop" inverseName="stop_" inverseEntity="RouteStop"/>
+    </entity>
 </model>
