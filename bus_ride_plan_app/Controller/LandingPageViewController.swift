@@ -100,13 +100,18 @@ extension LandingPageViewController: CLLocationManagerDelegate{
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            locationLabel.text = "Location data:\n(\(lat),\(lon))"
+            
             DispatchQueue.main.async {
                 let geoCoder = GMSGeocoder()
                 geoCoder.reverseGeocodeCoordinate((location.coordinate), completionHandler: 
                 {
                 reverseGeoCodeResponse, error in
-                    print(reverseGeoCodeResponse?.results()! ?? "")
+                    if let displayLocation = reverseGeoCodeResponse?.results()?.first {
+                        let address = displayLocation.lines?.first!
+                        let thoroughfare = displayLocation.thoroughfare!
+                        let adminArea = displayLocation.administrativeArea!
+                        self.locationLabel.text = "你現在的位置:\(address ?? "")"
+                    }
                 })
             }
             self.busDataManager.setLocation(lat: lat, lon: lon)
