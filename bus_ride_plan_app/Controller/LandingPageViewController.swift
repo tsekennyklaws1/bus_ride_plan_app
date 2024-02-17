@@ -56,25 +56,7 @@ class LandingPageViewController: UIViewController, BusManagerDelegate {
                 self.busDataManager.setStopNameList(stopData)
                 //self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
                 self.busDataManager.saveBusDataToDB(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
-                /*
-                var stopDataToBeSaved = [Stop]()
-                stopData.forEach {
-                    let stopDataItem = Stop(context: self.context)
-                    print("try to insert: \($0.toStr())")
-                    stopDataItem.busStop = $0.stop
-                    stopDataItem.name_en = $0.name_en
-                    stopDataItem.name_tc = $0.name_tc
-                    stopDataItem.name_sc = $0.name_sc
-                    stopDataItem.stopLat = $0.lat
-                    stopDataItem.stopLong = $0.long
-                    //stopDataToBeSaved.data_timeStamp = $0.data_timeStamp
-                    stopDataToBeSaved.append(stopDataItem)
-                    
-                }
-                self.saveToDB()
-                
-                loadFromDB()
-                */
+           
             }
         }
     }
@@ -124,67 +106,34 @@ extension LandingPageViewController: CLLocationManagerDelegate{
                 geoCoder.reverseGeocodeCoordinate((location.coordinate), completionHandler: 
                 {
                 reverseGeoCodeResponse, error in
-                    print(reverseGeoCodeResponse?.results()!)
+                    print(reverseGeoCodeResponse?.results()! ?? "")
                 })
             }
-            /*
-            let options = GMSMapViewOptions()
-                options.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lon, zoom: 17.0)
-                options.frame = self.view.bounds
-
-            let mapView = GMSMapView(options: options)
-                self.view.addSubview(mapView)
-
-                // Creates a marker in the center of the map.
-                let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                marker.title = "Kowloon Bay"
-                marker.snippet = "Hong Kong"
-                marker.map = mapView
-            */
+            self.busDataManager.setLocation(lat: lat, lon: lon)
+            self.busDataManager.searchNearestBusStop()
             
-
-             
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
-    
-    func saveToDB() {
-            do {
-                try context.save()
-            } catch {
-                print("Error saving category \(error)")
-            }
-            
-            //tableView.reloadData()
-            
-        }
-        
-    func loadFromDB() {
-       
-        let request = NSFetchRequest<Stop>(entityName: "Stop")
-        print("hello")
-      /*
-        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-       
-        if let addtionalPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
-        } else {
-            request.predicate = categoryPredicate
-        }*/
+    func viewMap(lat : CLLocationDegrees, lon : CLLocationDegrees){
+        let options = GMSMapViewOptions()
+            options.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lon, zoom: 17.0)
+            options.frame = self.view.bounds
 
-        
-        do {
-         let itemArray = try context.fetch(request)
-            print("DB items = \(itemArray)")
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
-        
-        //tableView.reloadData()
-        
+        let mapView = GMSMapView(options: options)
+            self.view.addSubview(mapView)
+
+            // Creates a marker in the center of the map.
+            let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            marker.title = "Kowloon Bay"
+            marker.snippet = "Hong Kong"
+            marker.map = mapView
     }
+    
+    
+
 
 }

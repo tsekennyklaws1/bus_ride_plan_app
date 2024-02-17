@@ -10,19 +10,21 @@ protocol BusManagerDelegate {
 
 class BusDataManager {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var currentLocation : (lat : CLLocationDegrees, lon : CLLocationDegrees)?
     
     let busRouteURL = "https://data.etabus.gov.hk/v1/transport/kmb"
-    var busRouteDataList :  [(String, String)] = []// "route,bound,service_type": "toStr"
+    var busRouteDataList = [(String, String)]()// "route,bound,service_type": "toStr"
 
     var bustStopsName : Dictionary <String, String> = Dictionary()
+    var nearestBusStop = [(String,String)]()
 
     var busRouteStopList : [String] = []
     var routeStopDict : Dictionary <String, [(String,String)]> = Dictionary()
 
-    var busStopEtaList : [(routeStr: String, cellStr: String)] = []
+    var busStopEtaList = [(routeStr: String, cellStr: String)]()
     var stopEtaDict : Dictionary <String, [String]> = Dictionary()
     
-    var busEtaDetailList : [String] = []
+    var busEtaDetailList = [String]()
     var etaDetailDict : Dictionary <String, [String]> = Dictionary()
     
     var selectedRoute : (route: String, bound: String, service_type: String)?// = ("1A","O","1")
@@ -244,20 +246,15 @@ class BusDataManager {
             default:
                 print("No data saved")
             }
-            
         }
         catch{
             print("Error encoding item array, \(error)")
         }
     }
-    
-    
-    
+
     func loadBusDataFromDB()-> Bool{
         var busRouteLoaded : Bool = false
         var busStopLoaded : Bool = false
-    
-        
         do {
             let request = NSFetchRequest<Route>(entityName: "Route")
             let itemArray = try context.fetch(request)
@@ -269,84 +266,91 @@ class BusDataManager {
         do{
             let request = NSFetchRequest<Stop>(entityName: "Stop")
             let itemArray = try context.fetch(request)
-            itemArray.forEach{self.bustStopsName.updateValue($0.name_tc!, forKey: $0.busStop!)}
+            itemArray.forEach{self.bustStopsName.updateValue($0.name_tc!, forKey: $0.stop!)}
             busStopLoaded = true
        } catch {
            print("Error fetching Stopdata from context \(error)")
        }
-        
-       
         return busRouteLoaded && busStopLoaded
     }
     
     
     func saveBusDataToDB(path : URL, dataToBeSave : [BusData]){
-        let encoder = PropertyListEncoder()
-        do{
-            switch path {
-            case localRouteDataPath:
-                
-                var dataToBeInsert = [Route]()
-                (dataToBeSave as! [RouteData]).forEach {
-                    let dataItem = Route(context: self.context)
-                    print("try to insert: \($0.toStr())")
-                    dataItem.route = $0.route
-                    dataItem.bound = $0.bound
-                    dataItem.dest_en = $0.dest_en
-                    dataItem.dest_tc = $0.dest_tc
-                    dataItem.dest_sc = $0.dest_sc
-                    dataItem.orig_en = $0.orig_en
-                    dataItem.orig_tc = $0.orig_tc
-                    dataItem.orig_sc = $0.orig_sc
-                    dataItem.co = $0.co
-                    dataItem.service_type = $0.service_type
-                    dataItem.toStr = $0.toStr()
-                    dataToBeInsert.append(dataItem)
-                    
-                }
-                saveToDB()
-            case localStopDataPath:
-                
-                var dataToBeInsert = [Stop]()
-                (dataToBeSave as! [StopData]).forEach {
-                    let dataItem = Stop(context: self.context)
-                    print("try to insert: \($0.toStr())")
-                    dataItem.busStop = $0.stop
-                    dataItem.name_en = $0.name_en
-                    dataItem.name_tc = $0.name_tc
-                    dataItem.name_sc = $0.name_sc
-                    dataItem.stopLat = $0.lat
-                    dataItem.stopLong = $0.long
-                    dataItem.toStr = $0.toStr()
-                    dataToBeInsert.append(dataItem)
-                    
-                }
-                saveToDB()
+       
+        switch path {
+        case localRouteDataPath:
+            var dataToBeInsert = [Route]()
+            (dataToBeSave as! [RouteData]).forEach {
+                let dataItem = Route(context: self.context)
+                print("try to insert: \($0.toStr())")
+                dataItem.route = $0.route
+                dataItem.bound = $0.bound
+                dataItem.dest_en = $0.dest_en
+                dataItem.dest_tc = $0.dest_tc
+                dataItem.dest_sc = $0.dest_sc
+                dataItem.orig_en = $0.orig_en
+                dataItem.orig_tc = $0.orig_tc
+                dataItem.orig_sc = $0.orig_sc
+                dataItem.co = $0.co
+                dataItem.service_type = $0.service_type
+                dataItem.toStr = $0.toStr()
+                dataToBeInsert.append(dataItem)
+            }
+            saveToDB()
+        case localStopDataPath:
+            
+            var dataToBeInsert = [Stop]()
+            (dataToBeSave as! [StopData]).forEach {
+                let dataItem = Stop(context: self.context)
+                print("try to insert: \($0.toStr())")
+                dataItem.stop = $0.stop
+                dataItem.name_en = $0.name_en
+                dataItem.name_tc = $0.name_tc
+                dataItem.name_sc = $0.name_sc
+                dataItem.lat = Double($0.lat) ?? 0.0
+                dataItem.long = Double($0.long) ?? 0.0
+                dataItem.toStr = $0.toStr()
+                dataToBeInsert.append(dataItem)
+            }
+            saveToDB()
                 
            // case localRouteStopDataPath:
            //     let data = try encoder.encode(dataToBeSave as! [RouteStopData])
            //     try data.write(to: localRouteStopDataPath!)
-            default:
-                print("No data saved")
-            }
-            
-        }
-        catch{
-            print("Error encoding item array, \(error)")
+        default:
+            print("No data saved")
         }
     }
     
     func saveToDB() {
-            do {
-                try context.save()
-            } catch {
-                print("Error saving category \(error)")
-            }
-            
-            //tableView.reloadData()
-            
+        do {
+            try context.save()
+        } catch {
+            print("Error during saving  \(error)")
         }
-        
-   
+    }
+    
+    func setLocation(lat : CLLocationDegrees, lon : CLLocationDegrees) {
+        self.currentLocation = (lat,lon)
+    }
+    func searchNearestBusStop() {
+        let request : NSFetchRequest<Stop> = Stop.fetchRequest()
+        let lat = currentLocation?.lat
+        let lon = currentLocation?.lon
+        if ((lat != nil) && (lon != nil)){
+            let predicate_lat = NSPredicate(format: "lat > %@ AND lat < %@", argumentArray: [ lat!.magnitude-0.002,lat!.magnitude+0.002])
+            let predicate_lon = NSPredicate(format: "long > %@ AND long < %@", argumentArray: [lon!.magnitude-0.002,lon!.magnitude+0.002])
+            let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate_lat,predicate_lon])
+            request.sortDescriptors = [NSSortDescriptor(key: "lat", ascending: true)]
+            request.predicate = compoundPredicate
+            do {
+                let stopDBArray = try context.fetch(request)
+                self.nearestBusStop = stopDBArray.map{( (String($0.stop!)),(String($0.name_tc!)) )}
+                
+            } catch {
+                print("Error fetching data from context \(error)")
+            }
+        }
+    }
 }
 

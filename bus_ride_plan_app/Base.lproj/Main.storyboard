@@ -19,26 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="l4F-zD-XWd">
-                                <rect key="frame" x="96.666666666666686" y="119.66666666666663" width="200" height="510"/>
+                                <rect key="frame" x="96.666666666666686" y="207" width="200" height="335"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歡迎來到九巴遊車河App" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5f-sj-xKz" customClass="CLTypingLabel" customModule="CLTypingLabel">
-                                        <rect key="frame" x="4.6666666666666572" y="0.0" width="190.66666666666666" height="70"/>
+                                        <rect key="frame" x="4.6666666666666572" y="0.0" width="190.66666666666666" height="35"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" systemColor="systemPurpleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location is " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFs-Jb-BNT">
-                                        <rect key="frame" x="0.0" y="110.00000000000003" width="200" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="NY8-M3-5ex"/>
-                                            <constraint firstAttribute="height" constant="70" id="v2E-Lw-11f"/>
-                                        </constraints>
+                                        <rect key="frame" x="65.333333333333329" y="75" width="68.999999999999986" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fee-eK-ZEt">
-                                        <rect key="frame" x="0.0" y="220.00000000000003" width="200" height="69.999999999999972"/>
+                                        <rect key="frame" x="0.0" y="150" width="200" height="35"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="306-Bw-931"/>
@@ -57,7 +53,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDu-By-BOU">
-                                        <rect key="frame" x="0.0" y="330" width="200" height="70"/>
+                                        <rect key="frame" x="0.0" y="225" width="200" height="35"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="1Ug-VP-cFB"/>
@@ -79,7 +75,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIZ-ae-0Hx">
-                                        <rect key="frame" x="0.0" y="440" width="200" height="70"/>
+                                        <rect key="frame" x="0.0" y="300" width="200" height="35"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="6ZG-TQ-5Xv"/>

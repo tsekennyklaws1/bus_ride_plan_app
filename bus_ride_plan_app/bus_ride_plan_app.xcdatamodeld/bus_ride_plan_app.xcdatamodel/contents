@@ -26,12 +26,12 @@
         <relationship name="stop_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stop" inverseName="parentStop" inverseEntity="Stop"/>
     </entity>
     <entity name="Stop" representedClassName=".Stop" syncable="YES" codeGenerationType="class">
-        <attribute name="busStop" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="long" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name_en" optional="YES" attributeType="String"/>
         <attribute name="name_sc" optional="YES" attributeType="String"/>
         <attribute name="name_tc" optional="YES" attributeType="String"/>
-        <attribute name="stopLat" optional="YES" attributeType="String"/>
-        <attribute name="stopLong" optional="YES" attributeType="String"/>
+        <attribute name="stop" optional="YES" attributeType="String"/>
         <attribute name="toStr" optional="YES" attributeType="String"/>
         <relationship name="parentStop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RouteStop" inverseName="stop_" inverseEntity="RouteStop"/>
     </entity>

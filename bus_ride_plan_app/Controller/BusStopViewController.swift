@@ -17,7 +17,8 @@ class BusStopViewController: UITableViewController, UISearchBarDelegate, BusMana
     var busDataManager = BusDataManager()
     var selectedStopName : String = ""
     var selectedStopCode : String = ""
-    var displayCells = [(stopCode:String,stopName:String)]()
+    var displayCells = [[(stopCode:String,stopName:String)]]()
+    //var nearestStopCells = [(stopCode:String,stopName:String)]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,7 +34,8 @@ class BusStopViewController: UITableViewController, UISearchBarDelegate, BusMana
         
         
         if (busDataManager.bustStopsName.count > 1) {
-            self.displayCells = busDataManager.bustStopsName.map{($0.key,$0.value)}
+            self.displayCells.append(busDataManager.nearestBusStop)
+            self.displayCells.append(busDataManager.bustStopsName.map{($0.key,$0.value)})
            // self.stopCellSelected = Array(repeating: false, count: displayCells.count)
         } else if (self.displayCells.count < 1){
             self.busDataManager.fetchAllBusStop()
@@ -53,11 +55,14 @@ class BusStopViewController: UITableViewController, UISearchBarDelegate, BusMana
         
         if let busStopData = (busData as? BusStopDataModel) {
             if busStopData.data.count > 1 {
-                self.displayCells = (busData as! BusStopDataModel).dataStringList
+                let stopData = (busData as! BusStopDataModel).dataStringList
+                
                 self.busDataManager.setStopNameList(busStopData.data as! [StopData])
                // self.stopCellSelected = Array(repeating: false, count: self.displayCells.count)
                 //self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
                 self.busDataManager.saveBusDataToDB(path: self.busDataManager.localStopDataPath!,dataToBeSave: busStopData.data as! [StopData])
+                self.busDataManager.searchNearestBusStop()
+                self.displayCells = [self.busDataManager.nearestBusStop,stopData]
             }
         }
         
@@ -75,19 +80,47 @@ class BusStopViewController: UITableViewController, UISearchBarDelegate, BusMana
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+
+            return displayCells.count
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return displayCells.count
-    }
 
+            return displayCells[section].count
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        view.backgroundColor =  UIColor.lightGray
+        let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 30))
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+       // let keys = Array(routeStopListDict.keys)
+        //let values = routeStopListDict.values.first
+        //self.HeaderSelected = "\(keys[section]): \(String(values![0].1)) -> \(String(values![values!.count-1].1))"
+        if (section == 0){
+            if (self.displayCells.count > 1 && self.displayCells[0].count > 0){
+                lbl.text = "最近的巴士站"
+                view.addSubview(lbl)
+            } else {
+                return nil
+            }
+        } else {
+            lbl.text = "所有巴士站"
+            view.addSubview(lbl)
+        }
+        
+        return view
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "busStopCells", for: indexPath)
         //cell.accessoryType = self.stopCellSelected[indexPath.row] ? .detailButton : .none
-        cell.textLabel?.text = displayCells[indexPath.row].stopName
+        
+        cell.textLabel?.text = displayCells[indexPath.section][indexPath.row].stopName
         
         return cell
     }
@@ -95,8 +128,8 @@ class BusStopViewController: UITableViewController, UISearchBarDelegate, BusMana
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         //self.stopCellSelected[indexPath.row] = !self.stopCellSelected[indexPath.row]
-        busDataManager.selectedStopCode = displayCells[indexPath.row].stopCode
-        self.selectedStopName = displayCells[indexPath.row].stopName
+        busDataManager.selectedStopCode = displayCells[indexPath.section][indexPath.row].stopCode
+        self.selectedStopName = displayCells[indexPath.section][indexPath.row].stopName
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
         performSegue(withIdentifier: "goToStopRouteList", sender: self)
@@ -141,18 +174,18 @@ class BusStopViewController: UITableViewController, UISearchBarDelegate, BusMana
             let predicate_sc = NSPredicate(format: "name_sc CONTAINS[cd] %@", searchBar.text!)
             
             let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate_en,predicate_tc,predicate_sc])
-            request.sortDescriptors = [NSSortDescriptor(key: "stopLat", ascending: true)]
+            //request.sortDescriptors = [NSSortDescriptor(key: "lat", ascending: true)]
             
             request.predicate = compoundPredicate
             
             do {
                 let stopDBArray = try context.fetch(request)
-                self.displayCells = stopDBArray.map{(String($0.busStop!),String($0.name_tc!))}
+                self.displayCells[1] = stopDBArray.map{(String($0.stop!),String($0.name_tc!))}
             } catch {
                 print("Error fetching data from context \(error)")
             }
         } else{
-            self.displayCells = busDataManager.bustStopsName.map{($0.key,$0.value)}
+            self.displayCells[1] = busDataManager.bustStopsName.map{($0.key,$0.value)}
         }
         tableView.reloadData()
             
