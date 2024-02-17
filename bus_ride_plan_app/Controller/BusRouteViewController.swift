@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import CoreData
 
-class BusRouteViewController: UITableViewController, BusManagerDelegate {
+class BusRouteViewController: UITableViewController,UISearchBarDelegate, BusManagerDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     let defaults = UserDefaults.standard
     var busRoutesCellDisplay : [String] = []
-    var routeCellSelected : [Bool] = []
+    //var routeCellSelected : [Bool] = []
     var selectedCellString : String = ""
     var busDataManager = BusDataManager()
     
@@ -38,7 +42,7 @@ class BusRouteViewController: UITableViewController, BusManagerDelegate {
         self.busDataManager.delegate = self
         if (busDataManager.busRouteDataList.count > 1) {
             self.busRoutesCellDisplay = busDataManager.busRouteDataList.map{$0.1}
-            self.routeCellSelected = Array(repeating: false, count: self.busRoutesCellDisplay.count)
+           // self.routeCellSelected = Array(repeating: false, count: self.busRoutesCellDisplay.count)
         } else if (busRoutesCellDisplay.count < 1){
             self.busDataManager.fetchAllBusRoute()
         }
@@ -50,7 +54,7 @@ class BusRouteViewController: UITableViewController, BusManagerDelegate {
         if let busRouteData = (busData as? BusRouteDataModel) {
             if busRouteData.data.count > 1 {
                 self.busRoutesCellDisplay = (busData as! BusRouteDataModel).dataStringList
-                self.routeCellSelected = Array(repeating: false, count: self.busRoutesCellDisplay.count)
+               // self.routeCellSelected = Array(repeating: false, count: self.busRoutesCellDisplay.count)
                 self.busDataManager.setBusRouteDataList(busRouteData.data as! [RouteData])
                 //self.busDataManager.saveBusDataToLocal(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
                 self.busDataManager.saveBusDataToDB(path: self.busDataManager.localRouteDataPath!,dataToBeSave: busRouteData.data as! [RouteData])
@@ -79,12 +83,12 @@ class BusRouteViewController: UITableViewController, BusManagerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "busRouteCells", for: indexPath)
         cell.textLabel?.text = busRoutesCellDisplay[indexPath.row]
-        cell.accessoryType = self.routeCellSelected[indexPath.row] ? .detailButton : .none
+       // cell.accessoryType = self.routeCellSelected[indexPath.row] ? .detailButton : .none
         return cell
     }
     //MARK - Tableview Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        self.routeCellSelected[indexPath.row] = !self.routeCellSelected[indexPath.row]
+        //self.routeCellSelected[indexPath.row] = !self.routeCellSelected[indexPath.row]
         let selectedRoute = busDataManager.busRouteDataList[indexPath.row]
         let routeParaList = selectedRoute.0.split(separator: ",")
         busDataManager.selectedRoute = (String(routeParaList[0]),String(routeParaList[1]),String(routeParaList[2]))
@@ -104,6 +108,55 @@ class BusRouteViewController: UITableViewController, BusManagerDelegate {
         }
         
     }
+    
+    // MARK UISearchBar Delegate
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            loadItems(searchBar.text!)
+            tableView.reloadData()
+        }
+        
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            if searchBar.text?.count == 0 {
+                loadItems()
+                
+                DispatchQueue.main.async {
+                    searchBar.resignFirstResponder()
+                }
+              
+            }
+        }
+        func loadItems( _ searchText : String = "") {
+                
+            if searchText != ""{
+                let request : NSFetchRequest<Route> = Route.fetchRequest()
+                
+                let predicate_route = NSPredicate(format: "route CONTAINS[cd] %@", searchBar.text!)
+                let predicate_orig_en = NSPredicate(format: "orig_en CONTAINS[cd] %@", searchBar.text!)
+                let predicate_dest_en = NSPredicate(format: "dest_en CONTAINS[cd] %@", searchBar.text!)
+                let predicate_orig_tc = NSPredicate(format: "orig_tc CONTAINS[cd] %@", searchBar.text!)
+                let predicate_dest_tc = NSPredicate(format: "dest_tc CONTAINS[cd] %@", searchBar.text!)
+                let predicate_orig_sc = NSPredicate(format: "orig_sc CONTAINS[cd] %@", searchBar.text!)
+                let predicate_dest_sc = NSPredicate(format: "dest_sc CONTAINS[cd] %@", searchBar.text!)
+                
+                let compoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate_route,predicate_orig_en,predicate_dest_en,predicate_orig_tc,predicate_dest_tc,predicate_orig_sc,predicate_dest_sc])
+                request.sortDescriptors = [NSSortDescriptor(key: "route", ascending: true)]
+                
+                request.predicate = compoundPredicate
+                
+                do {
+                    let routeDBArray = try context.fetch(request)
+                    self.busRoutesCellDisplay = routeDBArray.map{"\($0.route!) - \($0.orig_tc!)->\($0.dest_tc!)"}
+                    
+                    
+                } catch {
+                    print("Error fetching data from context \(error)")
+                }
+            } else{
+                self.busRoutesCellDisplay = busDataManager.busRouteDataList.map{$0.1}
+            }
+            tableView.reloadData()
+                
+        }
 
     
 }
