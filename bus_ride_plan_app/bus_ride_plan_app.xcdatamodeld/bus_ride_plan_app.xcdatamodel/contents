@@ -17,11 +17,11 @@
     <entity name="RouteStop" representedClassName=".RouteStop" syncable="YES" codeGenerationType="class">
         <attribute name="bound" optional="YES" attributeType="String"/>
         <attribute name="co" optional="YES" attributeType="String"/>
-        <attribute name="data_timeStamp" optional="YES" attributeType="String"/>
         <attribute name="route" optional="YES" attributeType="String"/>
         <attribute name="seq" optional="YES" attributeType="String"/>
         <attribute name="service_type" optional="YES" attributeType="String"/>
         <attribute name="stop" optional="YES" attributeType="String"/>
+        <attribute name="toStr" optional="YES" attributeType="String"/>
         <relationship name="route_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="parentRoute" inverseEntity="Route"/>
         <relationship name="stop_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stop" inverseName="parentStop" inverseEntity="Stop"/>
     </entity>

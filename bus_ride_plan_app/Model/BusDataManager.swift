@@ -314,9 +314,21 @@ class BusDataManager {
             }
             saveToDB()
                 
-           // case localRouteStopDataPath:
-           //     let data = try encoder.encode(dataToBeSave as! [RouteStopData])
-           //     try data.write(to: localRouteStopDataPath!)
+        case localRouteStopDataPath:
+            var dataToBeInsert = [RouteStop]()
+            (dataToBeSave as! [RouteStopData]).forEach {
+                let dataItem = RouteStop(context: self.context)
+                print("try to insert: \($0.toStr())")
+                dataItem.stop = $0.stop
+                dataItem.route = $0.route
+                dataItem.seq = $0.seq
+                dataItem.service_type = $0.service_type
+                dataItem.co = $0.co
+                dataItem.bound = $0.bound
+                dataItem.toStr = $0.toStr()
+                dataToBeInsert.append(dataItem)
+            }
+            saveToDB()
         default:
             print("No data saved")
         }
