@@ -1,0 +1,815 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E7B8FA62B72085E009B4502 /* BusEtaDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7B8FA52B72085E009B4502 /* BusEtaDetailData.swift */; };
+		0E7B8FA82B720C0D009B4502 /* EtaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7B8FA72B720C0D009B4502 /* EtaDetailViewController.swift */; };
+		0E7B8FAA2B7219AB009B4502 /* BusEtaDetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7B8FA92B7219AB009B4502 /* BusEtaDetailDataModel.swift */; };
+		0E9AD18A2B6E3D4500A5AD3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1892B6E3D4500A5AD3A /* AppDelegate.swift */; };
+		0E9AD18C2B6E3D4500A5AD3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD18B2B6E3D4500A5AD3A /* SceneDelegate.swift */; };
+		0E9AD18E2B6E3D4500A5AD3A /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD18D2B6E3D4500A5AD3A /* LandingPageViewController.swift */; };
+		0E9AD1912B6E3D4500A5AD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9AD18F2B6E3D4500A5AD3A /* Main.storyboard */; };
+		0E9AD1942B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1922B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodeld */; };
+		0E9AD1962B6E3D4600A5AD3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E9AD1952B6E3D4600A5AD3A /* Assets.xcassets */; };
+		0E9AD1992B6E3D4600A5AD3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9AD1972B6E3D4600A5AD3A /* LaunchScreen.storyboard */; };
+		0E9AD1A42B6E3D4600A5AD3A /* bus_ride_plan_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1A32B6E3D4600A5AD3A /* bus_ride_plan_appTests.swift */; };
+		0E9AD1AE2B6E3D4600A5AD3A /* bus_ride_plan_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1AD2B6E3D4600A5AD3A /* bus_ride_plan_appUITests.swift */; };
+		0E9AD1B02B6E3D4600A5AD3A /* bus_ride_plan_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1AF2B6E3D4600A5AD3A /* bus_ride_plan_appUITestsLaunchTests.swift */; };
+		0E9AD1C42B6E3DED00A5AD3A /* BusRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1C32B6E3DED00A5AD3A /* BusRouteViewController.swift */; };
+		0E9AD1C62B6E3DF700A5AD3A /* BusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1C52B6E3DF700A5AD3A /* BusStopViewController.swift */; };
+		0E9AD1CD2B6E3E4000A5AD3A /* BusRouteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1CC2B6E3E4000A5AD3A /* BusRouteDataModel.swift */; };
+		0E9AD1CF2B6E3E4600A5AD3A /* BusStopDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1CE2B6E3E4600A5AD3A /* BusStopDataModel.swift */; };
+		0E9AD1D12B6E3E5700A5AD3A /* BusDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1D02B6E3E5700A5AD3A /* BusDataModel.swift */; };
+		0E9AD1D32B6E3E5D00A5AD3A /* BusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1D22B6E3E5D00A5AD3A /* BusData.swift */; };
+		0E9AD1D52B6E3E6000A5AD3A /* BusRouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1D42B6E3E6000A5AD3A /* BusRouteData.swift */; };
+		0E9AD1D72B6E3E6400A5AD3A /* BusStopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1D62B6E3E6400A5AD3A /* BusStopData.swift */; };
+		0E9AD1D92B6E3E6E00A5AD3A /* BusDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1D82B6E3E6E00A5AD3A /* BusDataManager.swift */; };
+		0E9AD1DB2B6E78A900A5AD3A /* BusRouteStopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1DA2B6E78A900A5AD3A /* BusRouteStopData.swift */; };
+		0E9AD1DD2B6E7BFB00A5AD3A /* RouteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1DC2B6E7BFB00A5AD3A /* RouteListViewController.swift */; };
+		0E9AD1DF2B6E855A00A5AD3A /* BusRouteStopDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1DE2B6E855A00A5AD3A /* BusRouteStopDataModel.swift */; };
+		0E9AD1E22B70C3DA00A5AD3A /* StopEtaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1E12B70C3DA00A5AD3A /* StopEtaListViewController.swift */; };
+		0E9AD1E42B70CE7B00A5AD3A /* BusStopEtaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1E32B70CE7B00A5AD3A /* BusStopEtaData.swift */; };
+		0E9AD1E62B70D7B300A5AD3A /* BusStopEtaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AD1E52B70D7B300A5AD3A /* BusStopEtaDataModel.swift */; };
+		BCC8E8248CFFBEE68C1EB04D /* Pods_bus_ride_plan_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8153FE6E3335F4AB20910311 /* Pods_bus_ride_plan_app.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E9AD1A02B6E3D4600A5AD3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E9AD17E2B6E3D4500A5AD3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E9AD1852B6E3D4500A5AD3A;
+			remoteInfo = bus_ride_plan_app;
+		};
+		0E9AD1AA2B6E3D4600A5AD3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E9AD17E2B6E3D4500A5AD3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E9AD1852B6E3D4500A5AD3A;
+			remoteInfo = bus_ride_plan_app;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E7B8FA52B72085E009B4502 /* BusEtaDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusEtaDetailData.swift; sourceTree = "<group>"; };
+		0E7B8FA72B720C0D009B4502 /* EtaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtaDetailViewController.swift; sourceTree = "<group>"; };
+		0E7B8FA92B7219AB009B4502 /* BusEtaDetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusEtaDetailDataModel.swift; sourceTree = "<group>"; };
+		0E9AD1862B6E3D4500A5AD3A /* bus_ride_plan_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bus_ride_plan_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E9AD1892B6E3D4500A5AD3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0E9AD18B2B6E3D4500A5AD3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0E9AD18D2B6E3D4500A5AD3A /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		0E9AD1902B6E3D4500A5AD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0E9AD1932B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bus_ride_plan_app.xcdatamodel; sourceTree = "<group>"; };
+		0E9AD1952B6E3D4600A5AD3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0E9AD1982B6E3D4600A5AD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0E9AD19A2B6E3D4600A5AD3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E9AD19F2B6E3D4600A5AD3A /* bus_ride_plan_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bus_ride_plan_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E9AD1A32B6E3D4600A5AD3A /* bus_ride_plan_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bus_ride_plan_appTests.swift; sourceTree = "<group>"; };
+		0E9AD1A92B6E3D4600A5AD3A /* bus_ride_plan_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bus_ride_plan_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E9AD1AD2B6E3D4600A5AD3A /* bus_ride_plan_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bus_ride_plan_appUITests.swift; sourceTree = "<group>"; };
+		0E9AD1AF2B6E3D4600A5AD3A /* bus_ride_plan_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bus_ride_plan_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0E9AD1C32B6E3DED00A5AD3A /* BusRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteViewController.swift; sourceTree = "<group>"; };
+		0E9AD1C52B6E3DF700A5AD3A /* BusStopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewController.swift; sourceTree = "<group>"; };
+		0E9AD1CC2B6E3E4000A5AD3A /* BusRouteDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteDataModel.swift; sourceTree = "<group>"; };
+		0E9AD1CE2B6E3E4600A5AD3A /* BusStopDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDataModel.swift; sourceTree = "<group>"; };
+		0E9AD1D02B6E3E5700A5AD3A /* BusDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataModel.swift; sourceTree = "<group>"; };
+		0E9AD1D22B6E3E5D00A5AD3A /* BusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusData.swift; sourceTree = "<group>"; };
+		0E9AD1D42B6E3E6000A5AD3A /* BusRouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteData.swift; sourceTree = "<group>"; };
+		0E9AD1D62B6E3E6400A5AD3A /* BusStopData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopData.swift; sourceTree = "<group>"; };
+		0E9AD1D82B6E3E6E00A5AD3A /* BusDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataManager.swift; sourceTree = "<group>"; };
+		0E9AD1DA2B6E78A900A5AD3A /* BusRouteStopData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteStopData.swift; sourceTree = "<group>"; };
+		0E9AD1DC2B6E7BFB00A5AD3A /* RouteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListViewController.swift; sourceTree = "<group>"; };
+		0E9AD1DE2B6E855A00A5AD3A /* BusRouteStopDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRouteStopDataModel.swift; sourceTree = "<group>"; };
+		0E9AD1E12B70C3DA00A5AD3A /* StopEtaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopEtaListViewController.swift; sourceTree = "<group>"; };
+		0E9AD1E32B70CE7B00A5AD3A /* BusStopEtaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEtaData.swift; sourceTree = "<group>"; };
+		0E9AD1E52B70D7B300A5AD3A /* BusStopEtaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopEtaDataModel.swift; sourceTree = "<group>"; };
+		8153FE6E3335F4AB20910311 /* Pods_bus_ride_plan_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bus_ride_plan_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE073ACFDF4C22516D84555A /* Pods-bus_ride_plan_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bus_ride_plan_app.debug.xcconfig"; path = "Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app.debug.xcconfig"; sourceTree = "<group>"; };
+		FD3BB10E54ABFC622B14100B /* Pods-bus_ride_plan_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bus_ride_plan_app.release.xcconfig"; path = "Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E9AD1832B6E3D4500A5AD3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC8E8248CFFBEE68C1EB04D /* Pods_bus_ride_plan_app.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9AD19C2B6E3D4600A5AD3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9AD1A62B6E3D4600A5AD3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E9AD17D2B6E3D4500A5AD3A = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1882B6E3D4500A5AD3A /* bus_ride_plan_app */,
+				0E9AD1A22B6E3D4600A5AD3A /* bus_ride_plan_appTests */,
+				0E9AD1AC2B6E3D4600A5AD3A /* bus_ride_plan_appUITests */,
+				0E9AD1872B6E3D4500A5AD3A /* Products */,
+				F09B356E6BCB2C271ECEED40 /* Pods */,
+				2D68060317C024C3BEF7CAC0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0E9AD1872B6E3D4500A5AD3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1862B6E3D4500A5AD3A /* bus_ride_plan_app.app */,
+				0E9AD19F2B6E3D4600A5AD3A /* bus_ride_plan_appTests.xctest */,
+				0E9AD1A92B6E3D4600A5AD3A /* bus_ride_plan_appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0E9AD1882B6E3D4500A5AD3A /* bus_ride_plan_app */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1E02B6EA72800A5AD3A /* Data */,
+				0E9AD1C92B6E3E1900A5AD3A /* Model */,
+				0E9AD1C02B6E3DDE00A5AD3A /* Controller */,
+				0E9AD1892B6E3D4500A5AD3A /* AppDelegate.swift */,
+				0E9AD18B2B6E3D4500A5AD3A /* SceneDelegate.swift */,
+				0E9AD1922B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodeld */,
+				0E9AD18F2B6E3D4500A5AD3A /* Main.storyboard */,
+				0E9AD1952B6E3D4600A5AD3A /* Assets.xcassets */,
+				0E9AD1972B6E3D4600A5AD3A /* LaunchScreen.storyboard */,
+				0E9AD19A2B6E3D4600A5AD3A /* Info.plist */,
+			);
+			path = bus_ride_plan_app;
+			sourceTree = "<group>";
+		};
+		0E9AD1A22B6E3D4600A5AD3A /* bus_ride_plan_appTests */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1A32B6E3D4600A5AD3A /* bus_ride_plan_appTests.swift */,
+			);
+			path = bus_ride_plan_appTests;
+			sourceTree = "<group>";
+		};
+		0E9AD1AC2B6E3D4600A5AD3A /* bus_ride_plan_appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1AD2B6E3D4600A5AD3A /* bus_ride_plan_appUITests.swift */,
+				0E9AD1AF2B6E3D4600A5AD3A /* bus_ride_plan_appUITestsLaunchTests.swift */,
+			);
+			path = bus_ride_plan_appUITests;
+			sourceTree = "<group>";
+		};
+		0E9AD1C02B6E3DDE00A5AD3A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1C32B6E3DED00A5AD3A /* BusRouteViewController.swift */,
+				0E9AD1C52B6E3DF700A5AD3A /* BusStopViewController.swift */,
+				0E9AD18D2B6E3D4500A5AD3A /* LandingPageViewController.swift */,
+				0E9AD1DC2B6E7BFB00A5AD3A /* RouteListViewController.swift */,
+				0E9AD1E12B70C3DA00A5AD3A /* StopEtaListViewController.swift */,
+				0E7B8FA72B720C0D009B4502 /* EtaDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0E9AD1C92B6E3E1900A5AD3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1D82B6E3E6E00A5AD3A /* BusDataManager.swift */,
+				0E9AD1CC2B6E3E4000A5AD3A /* BusRouteDataModel.swift */,
+				0E9AD1CE2B6E3E4600A5AD3A /* BusStopDataModel.swift */,
+				0E9AD1D02B6E3E5700A5AD3A /* BusDataModel.swift */,
+				0E9AD1DE2B6E855A00A5AD3A /* BusRouteStopDataModel.swift */,
+				0E9AD1E52B70D7B300A5AD3A /* BusStopEtaDataModel.swift */,
+				0E7B8FA92B7219AB009B4502 /* BusEtaDetailDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0E9AD1E02B6EA72800A5AD3A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AD1D22B6E3E5D00A5AD3A /* BusData.swift */,
+				0E9AD1D42B6E3E6000A5AD3A /* BusRouteData.swift */,
+				0E9AD1DA2B6E78A900A5AD3A /* BusRouteStopData.swift */,
+				0E9AD1D62B6E3E6400A5AD3A /* BusStopData.swift */,
+				0E9AD1E32B70CE7B00A5AD3A /* BusStopEtaData.swift */,
+				0E7B8FA52B72085E009B4502 /* BusEtaDetailData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2D68060317C024C3BEF7CAC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8153FE6E3335F4AB20910311 /* Pods_bus_ride_plan_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F09B356E6BCB2C271ECEED40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE073ACFDF4C22516D84555A /* Pods-bus_ride_plan_app.debug.xcconfig */,
+				FD3BB10E54ABFC622B14100B /* Pods-bus_ride_plan_app.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E9AD1852B6E3D4500A5AD3A /* bus_ride_plan_app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E9AD1B32B6E3D4600A5AD3A /* Build configuration list for PBXNativeTarget "bus_ride_plan_app" */;
+			buildPhases = (
+				9C739832F46D94A3B29CED24 /* [CP] Check Pods Manifest.lock */,
+				0E9AD1822B6E3D4500A5AD3A /* Sources */,
+				0E9AD1832B6E3D4500A5AD3A /* Frameworks */,
+				0E9AD1842B6E3D4500A5AD3A /* Resources */,
+				F7CEDEC55B2114B9AFFCCFD2 /* [CP] Embed Pods Frameworks */,
+				D497F2A5B7A3297A02852A4B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bus_ride_plan_app;
+			productName = bus_ride_plan_app;
+			productReference = 0E9AD1862B6E3D4500A5AD3A /* bus_ride_plan_app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0E9AD19E2B6E3D4600A5AD3A /* bus_ride_plan_appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E9AD1B62B6E3D4600A5AD3A /* Build configuration list for PBXNativeTarget "bus_ride_plan_appTests" */;
+			buildPhases = (
+				0E9AD19B2B6E3D4600A5AD3A /* Sources */,
+				0E9AD19C2B6E3D4600A5AD3A /* Frameworks */,
+				0E9AD19D2B6E3D4600A5AD3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E9AD1A12B6E3D4600A5AD3A /* PBXTargetDependency */,
+			);
+			name = bus_ride_plan_appTests;
+			productName = bus_ride_plan_appTests;
+			productReference = 0E9AD19F2B6E3D4600A5AD3A /* bus_ride_plan_appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0E9AD1A82B6E3D4600A5AD3A /* bus_ride_plan_appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E9AD1B92B6E3D4600A5AD3A /* Build configuration list for PBXNativeTarget "bus_ride_plan_appUITests" */;
+			buildPhases = (
+				0E9AD1A52B6E3D4600A5AD3A /* Sources */,
+				0E9AD1A62B6E3D4600A5AD3A /* Frameworks */,
+				0E9AD1A72B6E3D4600A5AD3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E9AD1AB2B6E3D4600A5AD3A /* PBXTargetDependency */,
+			);
+			name = bus_ride_plan_appUITests;
+			productName = bus_ride_plan_appUITests;
+			productReference = 0E9AD1A92B6E3D4600A5AD3A /* bus_ride_plan_appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E9AD17E2B6E3D4500A5AD3A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					0E9AD1852B6E3D4500A5AD3A = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					0E9AD19E2B6E3D4600A5AD3A = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 0E9AD1852B6E3D4500A5AD3A;
+					};
+					0E9AD1A82B6E3D4600A5AD3A = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 0E9AD1852B6E3D4500A5AD3A;
+					};
+				};
+			};
+			buildConfigurationList = 0E9AD1812B6E3D4500A5AD3A /* Build configuration list for PBXProject "bus_ride_plan_app" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0E9AD17D2B6E3D4500A5AD3A;
+			productRefGroup = 0E9AD1872B6E3D4500A5AD3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E9AD1852B6E3D4500A5AD3A /* bus_ride_plan_app */,
+				0E9AD19E2B6E3D4600A5AD3A /* bus_ride_plan_appTests */,
+				0E9AD1A82B6E3D4600A5AD3A /* bus_ride_plan_appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0E9AD1842B6E3D4500A5AD3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E9AD1992B6E3D4600A5AD3A /* LaunchScreen.storyboard in Resources */,
+				0E9AD1962B6E3D4600A5AD3A /* Assets.xcassets in Resources */,
+				0E9AD1912B6E3D4500A5AD3A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9AD19D2B6E3D4600A5AD3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9AD1A72B6E3D4600A5AD3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C739832F46D94A3B29CED24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bus_ride_plan_app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D497F2A5B7A3297A02852A4B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7CEDEC55B2114B9AFFCCFD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bus_ride_plan_app/Pods-bus_ride_plan_app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E9AD1822B6E3D4500A5AD3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E9AD1D32B6E3E5D00A5AD3A /* BusData.swift in Sources */,
+				0E9AD18E2B6E3D4500A5AD3A /* LandingPageViewController.swift in Sources */,
+				0E7B8FA82B720C0D009B4502 /* EtaDetailViewController.swift in Sources */,
+				0E9AD1DD2B6E7BFB00A5AD3A /* RouteListViewController.swift in Sources */,
+				0E7B8FAA2B7219AB009B4502 /* BusEtaDetailDataModel.swift in Sources */,
+				0E9AD1C62B6E3DF700A5AD3A /* BusStopViewController.swift in Sources */,
+				0E9AD1CF2B6E3E4600A5AD3A /* BusStopDataModel.swift in Sources */,
+				0E9AD1D72B6E3E6400A5AD3A /* BusStopData.swift in Sources */,
+				0E9AD1E42B70CE7B00A5AD3A /* BusStopEtaData.swift in Sources */,
+				0E9AD1DB2B6E78A900A5AD3A /* BusRouteStopData.swift in Sources */,
+				0E9AD1C42B6E3DED00A5AD3A /* BusRouteViewController.swift in Sources */,
+				0E9AD1942B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodeld in Sources */,
+				0E9AD1D12B6E3E5700A5AD3A /* BusDataModel.swift in Sources */,
+				0E9AD1D92B6E3E6E00A5AD3A /* BusDataManager.swift in Sources */,
+				0E9AD1E22B70C3DA00A5AD3A /* StopEtaListViewController.swift in Sources */,
+				0E9AD1DF2B6E855A00A5AD3A /* BusRouteStopDataModel.swift in Sources */,
+				0E9AD18A2B6E3D4500A5AD3A /* AppDelegate.swift in Sources */,
+				0E9AD1D52B6E3E6000A5AD3A /* BusRouteData.swift in Sources */,
+				0E9AD1E62B70D7B300A5AD3A /* BusStopEtaDataModel.swift in Sources */,
+				0E9AD18C2B6E3D4500A5AD3A /* SceneDelegate.swift in Sources */,
+				0E9AD1CD2B6E3E4000A5AD3A /* BusRouteDataModel.swift in Sources */,
+				0E7B8FA62B72085E009B4502 /* BusEtaDetailData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9AD19B2B6E3D4600A5AD3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E9AD1A42B6E3D4600A5AD3A /* bus_ride_plan_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E9AD1A52B6E3D4600A5AD3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E9AD1B02B6E3D4600A5AD3A /* bus_ride_plan_appUITestsLaunchTests.swift in Sources */,
+				0E9AD1AE2B6E3D4600A5AD3A /* bus_ride_plan_appUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E9AD1A12B6E3D4600A5AD3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E9AD1852B6E3D4500A5AD3A /* bus_ride_plan_app */;
+			targetProxy = 0E9AD1A02B6E3D4600A5AD3A /* PBXContainerItemProxy */;
+		};
+		0E9AD1AB2B6E3D4600A5AD3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E9AD1852B6E3D4500A5AD3A /* bus_ride_plan_app */;
+			targetProxy = 0E9AD1AA2B6E3D4600A5AD3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0E9AD18F2B6E3D4500A5AD3A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E9AD1902B6E3D4500A5AD3A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0E9AD1972B6E3D4600A5AD3A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E9AD1982B6E3D4600A5AD3A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0E9AD1B12B6E3D4600A5AD3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0E9AD1B22B6E3D4600A5AD3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0E9AD1B42B6E3D4600A5AD3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE073ACFDF4C22516D84555A /* Pods-bus_ride_plan_app.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKESP3MPW2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bus_ride_plan_app/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennytse.1234.bus-ride-plan-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0E9AD1B52B6E3D4600A5AD3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD3BB10E54ABFC622B14100B /* Pods-bus_ride_plan_app.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKESP3MPW2;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bus_ride_plan_app/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennytse.1234.bus-ride-plan-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0E9AD1B72B6E3D4600A5AD3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKESP3MPW2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennytse.1234.bus-ride-plan-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bus_ride_plan_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/bus_ride_plan_app";
+			};
+			name = Debug;
+		};
+		0E9AD1B82B6E3D4600A5AD3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKESP3MPW2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennytse.1234.bus-ride-plan-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bus_ride_plan_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/bus_ride_plan_app";
+			};
+			name = Release;
+		};
+		0E9AD1BA2B6E3D4600A5AD3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKESP3MPW2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennytse.1234.bus-ride-plan-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = bus_ride_plan_app;
+			};
+			name = Debug;
+		};
+		0E9AD1BB2B6E3D4600A5AD3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKESP3MPW2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kennytse.1234.bus-ride-plan-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = bus_ride_plan_app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E9AD1812B6E3D4500A5AD3A /* Build configuration list for PBXProject "bus_ride_plan_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E9AD1B12B6E3D4600A5AD3A /* Debug */,
+				0E9AD1B22B6E3D4600A5AD3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E9AD1B32B6E3D4600A5AD3A /* Build configuration list for PBXNativeTarget "bus_ride_plan_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E9AD1B42B6E3D4600A5AD3A /* Debug */,
+				0E9AD1B52B6E3D4600A5AD3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E9AD1B62B6E3D4600A5AD3A /* Build configuration list for PBXNativeTarget "bus_ride_plan_appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E9AD1B72B6E3D4600A5AD3A /* Debug */,
+				0E9AD1B82B6E3D4600A5AD3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E9AD1B92B6E3D4600A5AD3A /* Build configuration list for PBXNativeTarget "bus_ride_plan_appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E9AD1BA2B6E3D4600A5AD3A /* Debug */,
+				0E9AD1BB2B6E3D4600A5AD3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0E9AD1922B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0E9AD1932B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodel */,
+			);
+			currentVersion = 0E9AD1932B6E3D4500A5AD3A /* bus_ride_plan_app.xcdatamodel */;
+			path = bus_ride_plan_app.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0E9AD17E2B6E3D4500A5AD3A /* Project object */;
+}

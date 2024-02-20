@@ -1,0 +1,24 @@
+PODS:
+  - CLTypingLabel (0.4.0)
+  - GoogleMaps (8.4.0):
+    - GoogleMaps/Maps (= 8.4.0)
+  - GoogleMaps/Base (8.4.0)
+  - GoogleMaps/Maps (8.4.0):
+    - GoogleMaps/Base
+
+DEPENDENCIES:
+  - CLTypingLabel (~> 0.4.0)
+  - GoogleMaps (= 8.4.0)
+
+SPEC REPOS:
+  trunk:
+    - CLTypingLabel
+    - GoogleMaps
+
+SPEC CHECKSUMS:
+  CLTypingLabel: 95a7d1faf7e3d1d952cd11cb0491d17d80c50934
+  GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
+
+PODFILE CHECKSUM: fee3c4683ea0af0e111ee6f18bbc2c7499f9d614
+
+COCOAPODS: 1.15.2
